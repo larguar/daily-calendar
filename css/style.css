@@ -1,3 +1,4 @@
+/* —————————— GENERAL —————————— */
 * {
     -webkit-font-smoothing: antialiased;
 }
@@ -9,65 +10,66 @@ body {
 	font-family: proxima-soft, sans-serif;
 	font-weight: 400;
 }
+.container {
+    max-width: 720px;
+    padding: 0 30px;
+}
+.col-small {
+    max-width: 120px;
+}
+main.container {
+    margin-bottom: 50px;
+}
+@media screen and (max-width: 575px) {
+	.col-small {
+	    max-width: 90px;
+	    padding-right: 0;
+	}
+}
+/* —————————— HEADER —————————— */
+header {
+	padding-left: 0!important;
+	padding-right: 0!important;
+    padding: 100px 0 30px;
+    margin-bottom: 50px;
+    background: #3B59FF;
+}
 h1 {
     font-size: 38px;
-    line-height: 1;
+    line-height: 1.1;
     color: #fff;
 }
 h1 span {
     display: block;
     font-size: 17px;
-    line-height: 1.8;
+    line-height: 1.5;
     opacity: 0.75;
 }
-.weather-icon {
+.day-icon {
     text-align: center;
 }
+.day-icon img {
+    max-width: 100%;
+}
+/* —————————— TIME —————————— */
 .circle, .hour {
     display: inline-block;
 }
-.container {
-    max-width: 720px;
-}
-
-header {
-    padding: 100px 0 30px;
-    margin-bottom: 50px;
-    background: #3B59FF;
-}
-.hour {
+.hour-block .hour {
     font-weight: 600;
     line-height: 18px;
     vertical-align: middle;
     margin-left: 5px;
     width: 60px;
     text-align: center;
+    color: #bbb;
 }
-.col-small {
-    max-width: 120px;
+.hour-block.current .hour, .hour-block.future .hour {
+	color: #1e1e1e;
 }
-
-textarea {
-    width: 100%;
-    border-radius: 0;
-    border: none;
-    border-top: 1px solid #ebebeb;
-    padding: 10px;
-    height: 44px;
-    margin-bottom: -6px;
-}
-textarea:focus {
-    background: rgba(252,199,51,1);
-    outline: none;
-}
-article.time {
+.time {
     margin-top: -13px;
 }
-
-main.container {
-    margin-bottom: 50px;
-}
-
 .hour-block .circle {
     height: 8px;
     width: 8px;
@@ -98,18 +100,37 @@ main.container {
     50%  { border-color: rgba(59, 89, 255, 0); }
     100% { border-color: rgba(59, 89, 255, 1); }
 }
-
-
-
-@media (max-width: 991px) {
-
-}
-@media screen and (max-width:767px) {
-
-}
 @media screen and (max-width: 575px) {
-
+	header {
+	    padding: 60px 0 30px;
+	}
+	.hour-block .hour {
+	    font-size: 14px;
+	    width: 50px;
+	}
 }
-@media screen and (max-width: 320px) {
-
+/* —————————— FORM/TEXTAREA —————————— */
+form#event {
+    border-top: 1px solid #ebebeb;
+    margin: 0 15px;
+    padding: 0;
+}
+.hour-block textarea {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    padding: 10px;
+    height: 44px;
+    margin-bottom: -6px;
+    opacity: 0.25;
+}
+.hour-block textarea:focus {
+    background: rgba(252,199,51,1);
+    outline: none;
+}
+.hour-block.current textarea, .hour-block.future textarea {
+	opacity: 1;
+}
+form.col.last {
+    border-bottom: 1px solid #ebebeb;
 }
