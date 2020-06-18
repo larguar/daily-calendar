@@ -18,7 +18,7 @@ A simple calendar application that allows a user to save events for each hour of
 * Update textarea background color if there's content in it
 * Pull data from local storage to automatically appear on page refresh
 * ~~Assign time blocks to actual times~~
-* ~~If time block is in the past, gray the circle and time, and mute the textarea
+* ~~If time block is in the past, gray the circle and time, and mute the textarea~~
 * ~~If time block is current hour, display blue circle with animation~~
 * ~~If time block is in the future, display blue circle~~
 * If time isn't between 9-5, display after hours message
