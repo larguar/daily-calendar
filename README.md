@@ -1,6 +1,15 @@
 # Daily Calendar
 A simple calendar application that allows a user to save events for each hour of the day. This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 
+## Functionality Highlights
+* Pulls current week day, full date, and current time via Moment.js
+* Outputs week day and full date in the header
+* Time blocks pull actual hours
+* If time block is in the past, circle and date are gray and textarea is muted
+* If time block is in the future, circle is blue and date and textarea are at full opacity
+* If time block is current, circle animates with border pulse
+* Time blocks are automatically populated via a for loop
+
 ## Todos
 * ~~Pull week day, long date, and current time via Moment.js~~
 * ~~Display week day, and long date in the header~~
