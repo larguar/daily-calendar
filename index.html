@@ -24,13 +24,24 @@
 				<img src="img/partly-cloudy.svg" alt="Weather">
 			</article>
 			<section class="title col">
-				<h1 class="mb-0"><span>Wednesday </span>November 29, 2020</h1> 
+				<h1 class="mb-0"></h1> 
 			</section>
 		</div>
 	</div>
 </header>
 
 <main class="container">
+	
+<!--
+	<section class="hour-block row">
+		<article class="time col col-small">
+			<div class="circle"></div>
+			<div class="hour">8 AM</div>
+		</article>
+		<form id="event" method="post" class="col">
+			<textarea name="cal-item"></textarea>
+		</form>
+	</section>
 	
 	<section class="hour-block row">
 		<article class="time col col-small">
@@ -107,7 +118,7 @@
 			<div class="circle"></div>
 			<div class="hour">4 PM</div>
 		</article>
-		<form id="event" method="post" class="col last">
+		<form id="event" method="post" class="col">
 			<textarea name="cal-item"></textarea>
 		</form>
 	</section>
@@ -117,13 +128,27 @@
 			<div class="circle"></div>
 			<div class="hour">5 PM</div>
 		</article>
+		<form id="event" method="post" class="col last">
+			<textarea name="cal-item"></textarea>
+		</form>
 	</section>
 	
-	<p id="after-hours" class="text-center">Work day is over! Check back tomorrow between 9-5.</p>
+	<section class="hour-block future row">
+		<article class="time col col-small">
+			<div class="circle"></div>
+			<div class="hour">6 PM</div>
+		</article>
+	</section>
+	
+	<p id="after-hours" class="text-center">
+		Done for the day! Check back tomorrow at 8 AM.
+		Not quite time to work yet! Check back at 8 AM.
+	</p>
+-->
 	
 </main>
 
+<script src="js/moment.min.js"></script>
 <script src="js/main.js"></script>
-
 </body>
 </html>
