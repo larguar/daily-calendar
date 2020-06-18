@@ -25,6 +25,9 @@ main.container {
 	    max-width: 90px;
 	    padding-right: 0;
 	}
+	main.container {
+	    margin-bottom: 30px;
+	}
 }
 /* —————————— HEADER —————————— */
 header {
@@ -133,4 +136,16 @@ form#event {
 }
 form.col.last {
     border-bottom: 1px solid #ebebeb;
+}
+/* —————————— AFTER HOURS —————————— */
+#after-hours {
+    margin: 20px 0;
+    font-weight: 600;
+}
+@media screen and (max-width: 575px) {
+	p#after-hours {
+	    margin: 30px auto 0;
+	    font-weight: 600;
+	    max-width: 280px;
+	}
 }
