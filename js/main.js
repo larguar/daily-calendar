@@ -74,15 +74,13 @@ timeArray.forEach(function(i) {
 	// !!!!! HELP HERE !!!!!
 	// Can't figure out how to convert this to jQuery
 	
-/*
-	textarea.addEventListener("input", evt => {
-		if (this.textArea.value !== '') {
-			textArea.style.height = textArea.scrollHeight + "px";
+	textarea.on("input", function() {
+		if ( $(this).val() !== '' ) {
+			$(this).css('height', $(this).prop('scrollHeight') + 'px');
 		} else {
-			textArea.style.height = '44px';
+			$(this).css('height', '44px');
 		}
 	});
-*/
 	
 	textarea.keypress(function (event) {
 	    if(event.which == 13 && !event.shiftKey) {        
@@ -94,10 +92,7 @@ timeArray.forEach(function(i) {
 	form.on('submit', function(event) {
 		event.preventDefault();
 		
-		// !!!!! HELP HERE !!!!!
-		// Can't figure out how to grab the value of the textarea with jQuery
-		
-		var storedTime = 'test';
+		var storedTime = textarea.val();
 
 		if (storedTime === '') { 
 			return;
