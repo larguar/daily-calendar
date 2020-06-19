@@ -69,11 +69,15 @@ timeArray.forEach(function(i) {
 	
 	// create textarea within form
 	var textarea = $('<textarea>');
-	textarea.attr('id', 'hour-' + i.format('h'));
 	
-	// !!!!! HELP HERE !!!!!
-	// Can't figure out how to convert this to jQuery
+	// if events are stored, output them on page load
+	var stored = localStorage.getItem(i.format('h A'));
+	if (stored !== null) { // if elements are stored,
+		textarea.val(stored);
+		textarea.css('height', 'auto!important');
+	}
 	
+	// adjusts textarea height if you input multiple lines
 	textarea.on("input", function() {
 		if ( $(this).val() !== '' ) {
 			$(this).css('height', $(this).prop('scrollHeight') + 'px');
@@ -82,6 +86,7 @@ timeArray.forEach(function(i) {
 		}
 	});
 	
+	// allows you to shift+return in the textarea, but return submits the form
 	textarea.keypress(function (event) {
 	    if(event.which == 13 && !event.shiftKey) {        
 	        $(this).closest("form").submit();
@@ -89,16 +94,17 @@ timeArray.forEach(function(i) {
 	    }
 	});
 	
+	// on form submit, send value of textarea to local storage
 	form.on('submit', function(event) {
 		event.preventDefault();
 		
-		var storedTime = textarea.val();
+		var storedTime = textarea.val().trim();
 
 		if (storedTime === '') { 
 			return;
 		}
-	
-		localStorage.setItem(i.format('h A'), storedTime); // stringify the array and send to local storage
+		
+		localStorage.setItem(i.format('h A'), storedTime);
 	});
 	
 	// append all items
