@@ -118,7 +118,7 @@ timeArray.forEach(function(i) {
 // get current, before, and after hour number
 var currentHour = currentTime.hour();
 var startHour = moment('8:00:00 AM', "HH:mm:ss a").hour();
-var endHour = moment('1:00:00 PM', "HH:mm:ss a").hour();
+var endHour = moment('6:00:00 PM', "HH:mm:ss a").hour();
 
 // change data if before, after, or during work hours
 if (currentHour < startHour) {
