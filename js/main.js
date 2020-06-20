@@ -9,13 +9,14 @@ var currentTime = moment();
 // log moment() info
 console.log('Current Day: ', weekday.toString());
 console.log('Current Date: ', dateString.toString());
+console.log('Current Time: ', currentTime.toString());
 console.log('Current Hour Block: ', currentTime.format('h A').toString());
 console.log('—————');
 
 // create array by hour blocks
 var timeArray = [
-	//moment('8 AM', 'h A'),
-	//moment('9 AM', 'h A'),
+	moment('8 AM', 'h A'),
+	moment('9 AM', 'h A'),
 	moment('10 AM', 'h A'), 
 	moment('11 AM', 'h A'), 
 	moment('12 PM', 'h A'),
@@ -24,16 +25,13 @@ var timeArray = [
 	moment('3 PM', 'h A'),
 	moment('4 PM', 'h A'),
 	moment('5 PM', 'h A'),
-	moment('6 PM', 'h A'),
-	moment('7 PM', 'h A'),
-	moment('8 PM', 'h A'),
-	moment('9 PM', 'h A')
+	moment('6 PM', 'h A')
 ];
 
 // update header content to pull current week day and full date
 $('.title h1').html('<h1 class="mb-0"><span>' + weekday + ' </span>' + dateString + '</h1>');
 
-// 
+
 timeArray.forEach(function(i) {
 	
 	// create hour block container
@@ -116,3 +114,34 @@ timeArray.forEach(function(i) {
 	container.append(timeBlock);
 	
 });
+
+// get current, before, and after hour number
+var currentHour = currentTime.hour();
+var startHour = moment('8:00:00 AM', "HH:mm:ss a").hour();
+var endHour = moment('1:00:00 PM', "HH:mm:ss a").hour();
+
+// change data if before, after, or during work hours
+if (currentHour < startHour) {
+	
+	$('header').css('background', '#000c4f');
+	$('.day-icon img').attr('src', 'img/night.svg');
+	
+	var alert = $('<p>').attr('id', 'after-hours').addClass('text-center');
+	alert.text('Not quite time to work yet! Check back at 8 AM.');
+	$('main.container').append(alert);
+	
+} else if (currentHour >= endHour) {
+	
+	$('header').css('background', '#000c4f');
+	$('.day-icon img').attr('src', 'img/night.svg');
+	
+	var alert = $('<p>').attr('id', 'after-hours').addClass('text-center')
+	alert.text('Done for the day! Check back tomorrow at 8 AM.');
+	$('main.container').append(alert);
+	
+} else {
+	
+	$('header').css('background', '#3B59FF');
+	$('.day-icon img').attr('src', 'img/day.svg');
+	
+}

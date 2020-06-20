@@ -11,6 +11,7 @@ A simple calendar application that allows a user to save events for each hour of
 * Time blocks are automatically populated via a for loop
 * Data is stored to local storage on form submit
 * If data is stored in local storage, it auto populates on page load
+* If time is after work hours, header color and image change to night mode and alert is diplayed
 
 ## Todos
 * ~~Pull week day, long date, and current time via Moment.js~~
@@ -23,9 +24,9 @@ A simple calendar application that allows a user to save events for each hour of
 * ~~If time block is in the past, gray the circle and time, and mute the textarea~~
 * ~~If time block is current hour, display blue circle with animation~~
 * ~~If time block is in the future, display blue circle~~
-* If time isn't between 9-5, display after hours message
-* If time isn't between 9-5, swap out header day image with night image
-* If time isn't between 9-5, update header color
+* ~~If time isn't between 9-5, display after hours message~~
+* ~~If time isn't between 9-5, swap out header day image with night image~~
+* ~~If time isn't between 9-5, update header color~~
 * ~~Utilize loops to populate the data on the page~~
 * Have the textarea height get taller if the text is longer than the default height
 * Update last time block form to have a border-bottom
