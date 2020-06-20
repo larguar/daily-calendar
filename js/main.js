@@ -24,20 +24,18 @@ var timeArray = [
 	moment('2 PM', 'h A'),
 	moment('3 PM', 'h A'),
 	moment('4 PM', 'h A'),
-	moment('5 PM', 'h A'),
-	moment('6 PM', 'h A')
+	moment('5 PM', 'h A')
 ];
 
 // update header content to pull current week day and full date
 $('.title h1').html('<h1 class="mb-0"><span>' + weekday + ' </span>' + dateString + '</h1>');
 
 
+// loop through timeArray elements
 timeArray.forEach(function(i) {
 	
 	// create hour block container
-	var timeBlock = $('<section>');
-	timeBlock.addClass('hour-block row');
-	//timeBlock.attr('id', 'hour-' + i.format('h'));
+	var timeBlock = $('<section>').addClass('hour-block row');
 	
 	// add class to hour block if equal to or later than current time
 	if (currentTime.format('h A') === i.format('h A')) {
@@ -47,36 +45,28 @@ timeArray.forEach(function(i) {
 	}
 	
 	// create time container
-	var timeContainer = $('<article>');
-	timeContainer.addClass('time col col-small');
+	var timeContainer = $('<article>').addClass('time col col-small');
 	
 	// create time indicator circle
-	var circle = $('<div>');
-	circle.addClass('circle');
+	var circle = $('<div>').addClass('circle');
 	
 	// create hour block time
-	var hour = $('<div>');
-	hour.addClass('hour');
-	hour.text(i.format('h A'));
+	var hour = $('<div>').addClass('hour').text(i.format('h A'));
 	
 	// create event form
-	var form = $('<form>');
-	form.attr('id', 'event');
-	form.attr('method', 'post');
-	form.addClass('col');
+	var form = $('<form>').attr('method', 'post').addClass('col');
 	
 	// create textarea within form
-	var textarea = $('<textarea>');
+	var textarea = $('<textarea>').attr('id', 'time-' + i.format('hA'));
 	
 	// if events are stored, output them on page load
 	var stored = localStorage.getItem(i.format('h A'));
 	if (stored !== null) { // if elements are stored,
 		textarea.val(stored);
-		textarea.css('height', 'auto!important');
 	}
 	
 	// adjusts textarea height if you input multiple lines
-	textarea.on("input", function() {
+	textarea.on('input', function() {
 		if ( $(this).val() !== '' ) {
 			$(this).css('height', $(this).prop('scrollHeight') + 'px');
 		} else {
@@ -87,7 +77,7 @@ timeArray.forEach(function(i) {
 	// allows you to shift+return in the textarea, but return submits the form
 	textarea.keypress(function (event) {
 	    if(event.which == 13 && !event.shiftKey) {        
-	        $(this).closest("form").submit();
+	        $(this).closest('form').submit();
 	        event.preventDefault();
 	    }
 	});
@@ -115,10 +105,18 @@ timeArray.forEach(function(i) {
 	
 });
 
+var sixBlock = $('<section>').attr('id', 'six').addClass('hour-block row');
+var sixTimeContainer = $('<article>').addClass('time col col-small');
+var sixCircle = $('<div>').addClass('circle');
+var sixHour = $('<div>').addClass('hour').text('6 PM');
+sixTimeContainer.append(sixCircle, sixHour);
+sixBlock.append(sixTimeContainer);
+container.append(sixBlock);
+
 // get current, before, and after hour number
 var currentHour = currentTime.hour();
-var startHour = moment('8:00:00 AM', "HH:mm:ss a").hour();
-var endHour = moment('6:00:00 PM', "HH:mm:ss a").hour();
+var startHour = moment('8:00:00 AM', 'HH:mm:ss a').hour();
+var endHour = moment('6:00:00 PM', 'HH:mm:ss a').hour();
 
 // change data if before, after, or during work hours
 if (currentHour < startHour) {
@@ -126,7 +124,7 @@ if (currentHour < startHour) {
 	$('header').css('background', '#000c4f');
 	$('.day-icon img').attr('src', 'img/night.svg');
 	
-	var alert = $('<p>').attr('id', 'after-hours').addClass('text-center');
+	var alert = $('<p>').attr('id', 'after-hours');
 	alert.text('Not quite time to work yet! Check back at 8 AM.');
 	$('main.container').append(alert);
 	
@@ -135,7 +133,7 @@ if (currentHour < startHour) {
 	$('header').css('background', '#000c4f');
 	$('.day-icon img').attr('src', 'img/night.svg');
 	
-	var alert = $('<p>').attr('id', 'after-hours').addClass('text-center')
+	var alert = $('<p>').attr('id', 'after-hours');
 	alert.text('Done for the day! Check back tomorrow at 8 AM.');
 	$('main.container').append(alert);
 	
@@ -143,5 +141,8 @@ if (currentHour < startHour) {
 	
 	$('header').css('background', '#3B59FF');
 	$('.day-icon img').attr('src', 'img/day.svg');
+	
+	$('#six .circle').css('background', '#3B59FF');
+	$('#six .hour').css('color', '#1e1e1e');
 	
 }

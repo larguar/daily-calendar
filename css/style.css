@@ -70,7 +70,7 @@ h1 span {
 	color: #1e1e1e;
 }
 .time {
-    margin-top: -13px;
+    margin-top: -14px;
 }
 .hour-block .circle {
     height: 8px;
@@ -112,7 +112,7 @@ h1 span {
 	}
 }
 /* —————————— FORM/TEXTAREA —————————— */
-form#event {
+form.col {
     border-top: 1px solid #ebebeb;
     margin: 0 15px;
     padding: 0;
@@ -136,10 +136,14 @@ form#event {
 form.col.last {
     border-bottom: 1px solid #ebebeb;
 }
+#time-5PM {
+    border-bottom: 1px solid #ebebeb;
+}
 /* —————————— AFTER HOURS —————————— */
 #after-hours {
     margin: 20px 0;
     font-weight: 600;
+    text-align: center;
 }
 @media screen and (max-width: 575px) {
 	p#after-hours {
