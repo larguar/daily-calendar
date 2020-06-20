@@ -60,9 +60,11 @@ timeArray.forEach(function(i) {
 	var textarea = $('<textarea>').attr('id', 'time-' + i.format('hA'));
 	
 	// if events are stored, output them on page load
-	var stored = localStorage.getItem(i.format('h A'));
+	var storageName = i.format('h A');
+	var stored = localStorage.getItem(storageName);
+	var height = localStorage.getItem(storageName + ' height');
 	if (stored !== null) { // if elements are stored,
-		textarea.val(stored);
+		textarea.val(stored).height(parseInt(height) + 20);
 	}
 	
 	// adjusts textarea height if you input multiple lines
@@ -92,7 +94,9 @@ timeArray.forEach(function(i) {
 			return;
 		}
 		
-		localStorage.setItem(i.format('h A'), storedTime);
+		var textareaHeight = textarea.height();
+		localStorage.setItem(storageName + ' height', textareaHeight);
+		localStorage.setItem(storageName, storedTime);
 	});
 	
 	// append all items
@@ -104,6 +108,8 @@ timeArray.forEach(function(i) {
 	container.append(timeBlock);
 	
 });
+
+$('#time-5PM').parent().css('border-bottom', '1px solid #ebebeb');
 
 var sixBlock = $('<section>').attr('id', 'six').addClass('hour-block row');
 var sixTimeContainer = $('<article>').addClass('time col col-small');

@@ -13,6 +13,7 @@ A simple calendar application that allows a user to save events for each hour of
 * If data is stored in local storage, it auto populates on page load
 * If time is after work hours, header color and image change to night mode and alert is diplayed
 * 6 PM block is populated after loop so it can be muted as soon as current time hits 6 PM
+* Textarea height gets taller if text is longer than the default height
 
 ## Todos
 * ~~Pull week day, long date, and current time via Moment.js~~
@@ -28,6 +29,6 @@ A simple calendar application that allows a user to save events for each hour of
 * ~~If time isn't between 9-5, update header color~~
 * ~~Utilize loops to populate the data on the page~~
 * ~~Update last time block form to have a border-bottom~~
+* ~~Have the textarea height get taller if the text is longer than the default height~~
 * Automatically "save" an entry by hitting the enter key or clicking out of the textarea
 * Update textarea background color if there's content in it
-* Have the textarea height get taller if the text is longer than the default height

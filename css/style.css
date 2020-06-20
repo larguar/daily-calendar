@@ -133,12 +133,6 @@ form.col {
 .hour-block.current textarea, .hour-block.future textarea {
 	opacity: 1;
 }
-form.col.last {
-    border-bottom: 1px solid #ebebeb;
-}
-#time-5PM {
-    border-bottom: 1px solid #ebebeb;
-}
 /* —————————— AFTER HOURS —————————— */
 #after-hours {
     margin: 20px 0;
