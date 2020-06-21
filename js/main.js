@@ -56,7 +56,7 @@ timeArray.forEach(function(i) {
 	var storageName = i.format('h A');
 	var stored = localStorage.getItem(storageName);
 	var height = localStorage.getItem(storageName + ' height');
-	if (stored !== null) { // if elements are stored,
+	if (stored !== null) {,
 		textarea.val(stored).height(parseInt(height) + 20);
 	}
 	
@@ -79,14 +79,11 @@ timeArray.forEach(function(i) {
 	
 	// on form submit, send value of textarea to local storage
 	form.on('submit', function(event) {
-		event.preventDefault();
-		
+		event.preventDefault();		
 		var storedTime = textarea.val();
-
 		if (storedTime === '') { 
 			return;
-		}
-		
+		}		
 		var textareaHeight = textarea.height();
 		localStorage.setItem(storageName + ' height', textareaHeight);
 		localStorage.setItem(storageName, storedTime);
@@ -95,13 +92,10 @@ timeArray.forEach(function(i) {
 	// on form change, send value of textarea to local storage
 	form.on('change', function(event) {
 		event.preventDefault();
-		
 		var storedTime = textarea.val();
-
 		if (storedTime === '') { 
 			return;
-		}
-		
+		}		
 		var textareaHeight = textarea.height();
 		localStorage.setItem(storageName + ' height', textareaHeight);
 		localStorage.setItem(storageName, storedTime);
@@ -109,20 +103,22 @@ timeArray.forEach(function(i) {
 	
 	// append all items
 	form.append(textarea);
-	timeContainer.append(circle);
-	timeContainer.append(hour);
-	timeBlock.append(timeContainer);
-	timeBlock.append(form);
+	timeContainer.append(circle, hour);
+	timeBlock.append(timeContainer, form);
 	container.append(timeBlock);
 	
 });
 
+// add border bottom to last block in loop
 $('#time-5PM').parent().css('border-bottom', '1px solid #ebebeb');
 
+// populate partial element for final time block
 var sixBlock = $('<section>').attr('id', 'six').addClass('hour-block row');
 var sixTimeContainer = $('<article>').addClass('time col col-small');
 var sixCircle = $('<div>').addClass('circle');
 var sixHour = $('<div>').addClass('hour').text('6 PM');
+
+// append all items
 sixTimeContainer.append(sixCircle, sixHour);
 sixBlock.append(sixTimeContainer);
 container.append(sixBlock);
@@ -155,7 +151,7 @@ if (currentHour < startHour) {
 	
 	$('header').css('background', '#3B59FF');
 	$('.day-icon img').attr('src', 'img/day.svg');
-	
+		
 	$('#six .circle').css('background', '#3B59FF');
 	$('#six .hour').css('color', '#1e1e1e');
 	
