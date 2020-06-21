@@ -56,7 +56,7 @@ timeArray.forEach(function(i) {
 	var storageName = i.format('h A');
 	var stored = localStorage.getItem(storageName);
 	var height = localStorage.getItem(storageName + ' height');
-	if (stored !== null) {,
+	if (stored !== null) {
 		textarea.val(stored).height(parseInt(height) + 20);
 	}
 	
