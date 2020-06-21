@@ -6,13 +6,6 @@ var weekday = moment().format('dddd');
 var dateString = moment().format('LL');
 var currentTime = moment();
 
-// log moment() info
-console.log('Current Day: ', weekday.toString());
-console.log('Current Date: ', dateString.toString());
-console.log('Current Time: ', currentTime.toString());
-console.log('Current Hour Block: ', currentTime.format('h A').toString());
-console.log('—————');
-
 // create array by hour blocks
 var timeArray = [
 	moment('8 AM', 'h A'),
@@ -85,6 +78,21 @@ timeArray.forEach(function(i) {
 	});
 	
 	// on form submit, send value of textarea to local storage
+	form.on('submit', function(event) {
+		event.preventDefault();
+		
+		var storedTime = textarea.val();
+
+		if (storedTime === '') { 
+			return;
+		}
+		
+		var textareaHeight = textarea.height();
+		localStorage.setItem(storageName + ' height', textareaHeight);
+		localStorage.setItem(storageName, storedTime);
+	});
+	
+	// on form change, send value of textarea to local storage
 	form.on('change', function(event) {
 		event.preventDefault();
 		
