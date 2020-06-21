@@ -85,10 +85,10 @@ timeArray.forEach(function(i) {
 	});
 	
 	// on form submit, send value of textarea to local storage
-	form.on('submit', function(event) {
+	form.on('change', function(event) {
 		event.preventDefault();
 		
-		var storedTime = textarea.val().trim();
+		var storedTime = textarea.val();
 
 		if (storedTime === '') { 
 			return;

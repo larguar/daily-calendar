@@ -127,7 +127,7 @@ form.col {
     opacity: 0.25;
 }
 .hour-block textarea:focus {
-    background: rgba(252,199,51,1);
+    background: rgba(252,199,51,0.5);
     outline: none;
 }
 .hour-block.current textarea, .hour-block.future textarea {
