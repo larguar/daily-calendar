@@ -2,17 +2,13 @@
 A simple calendar application that allows a user to save events for each hour of the day. This app runs in the browser and features dynamically updated HTML and CSS powered by jQuery.
 
 ## Functionality Highlights
-* Pulls current week day, full date, and current time via Moment.js
-* Outputs week day and full date in the header
-* Time blocks pull actual hours
+* Pulls and outputs current week day, full date, and current time via Moment.js
 * If time block is in the past, circle and date are gray and textarea is muted
 * If time block is in the future, circle is blue and date and textarea are at full opacity
 * If time block is current, circle animates with border pulse
-* Time blocks are automatically populated via a for loop
-* Data is stored to local storage on form submit
-* If data is stored in local storage, it auto populates on page load
 * If time is after work hours, header color and image change to night mode and alert is diplayed
-* 6 PM block is populated after loop so it can be muted as soon as current time hits 6 PM
+* Textarea data saves to local storage automatically when you click out of it
+* If data is stored in local storage, it auto populates on page load
 * Textarea height gets taller if text is longer than the default height
 
 ## Todos
@@ -30,5 +26,4 @@ A simple calendar application that allows a user to save events for each hour of
 * ~~Utilize loops to populate the data on the page~~
 * ~~Update last time block form to have a border-bottom~~
 * ~~Have the textarea height get taller if the text is longer than the default height~~
-* Automatically "save" an entry by hitting the enter key or clicking out of the textarea
-* Update textarea background color if there's content in it
+* ~~Automatically "save" an entry by hitting the enter key or clicking out of the textarea~~
