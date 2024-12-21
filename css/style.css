@@ -69,8 +69,8 @@ h1 span {
 .hour-block.current .hour, .hour-block.future .hour {
 	color: #1e1e1e;
 }
-.hour-block.row {
-    align-items: center;
+.time {
+    margin-top: -14px;
 }
 .hour-block .circle {
     height: 8px;
